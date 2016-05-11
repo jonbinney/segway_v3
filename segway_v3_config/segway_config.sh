@@ -21,8 +21,8 @@ export SEGWAY_HAS_BSA=false
 # Platform name for specific URDF models and configurations; the base platform is
 # used for drivers, sim controllers, etc; the platform name is for special URDF/Sensor
 # configurations. In general they should be the same unless we built you a custom system
-export SEGWAY_BASE_PLATFORM=RMP_210
-export SEGWAY_PLATFORM_NAME=RMP_210
+export SEGWAY_BASE_PLATFORM=RMP_OMNI
+export SEGWAY_PLATFORM_NAME=RMP_OMNI
 
 # Defines the location of the sensors frames and the UI box
 # they all move together for the navigator elite. This is the point at the
