@@ -69,7 +69,7 @@ class SegwayMarkerMenu:
     def __init__(self,server,sim):
     
         self.wp_menu_opt = dict({2:"Add",3:"Start",4:"Stop",5:"Reset",6:"Clear",7:"Reload"})
-        self.mode_menu_opt = dict({9:"Standby",10:"Tractor",11:"Balance"})
+        self.mode_menu_opt = dict({10:"Standby",11:"Tractor",12:"Balance"})
         self._server = server
         self.menu_handler = MenuHandler()
         sub_menu_handle = self.menu_handler.insert( "WayPoints" )

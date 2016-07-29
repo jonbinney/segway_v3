@@ -4,7 +4,7 @@
 
 # If there is an onboard PC powered by the system this will run the watchdog
 # to make sure it gets gracefully shutdown before the system power cuts out.
-export SEGWAY_POWERS_PC_ONBOARD=false
+export SEGWAY_POWERS_PC_ONBOARD=true
 
 #Default Segway RMP_V3 network 
 export SEGWAY_IP_ADDRESS=10.66.171.5
@@ -30,8 +30,8 @@ export SEGWAY_PLATFORM_NAME=RMP_OMNI
 export NAVIGATOR_ELITE_XYZ="-0.1801 0 0.060625"
 
 #Only the RMP220 and RMP210 can have caster plates so do not enable them if using another model
-export SEGWAY_HAS_REAR_CASTER=true
-export SEGWAY_HAS_FRONT_CASTER=true
+export SEGWAY_HAS_REAR_CASTER=false
+export SEGWAY_HAS_FRONT_CASTER=false
 
 #Determines if the platform should use 2D or 3D odometry
 export SEGWAY_USE_2D_ODOMETRY=true
@@ -46,7 +46,7 @@ export SEGWAY_USE_GPS_FOR_GLOBAL_LOCALIZATION=false
 # Joystick configurations for onboard joystick
 export SEGWAY_HAS_ONBOARD_JOY=false
 export SEGWAY_JOY_DEV=/dev/input/js0
-export SEGWAY_JOY_MAPPING=xbox360
+export SEGWAY_JOY_MAPPING=extreme3D
 export SEGWAY_JOY_DEADZONE=0.1
 
 # Sets whether the costmaps use 3D voxel grid layer (need a 3D sensor enabled)
@@ -55,33 +55,47 @@ export SEGWAY_USE_VOXEL_GRID=false
 # External IMU configuration;
 export SEGWAY_HAS_EXT_IMU=false
 export SEGWAY_HAS_UM7_IMU=false
-export SEGWAY_UM7_DEV="/dev/serial/by-path/pci-0000:00:1a.0-usb-0:1.5:1.0-port0"
-export EXT_IMU_XYZ="0 0 0.33405"
-export EXT_IMU_RPY="0 0 0"
+export SEGWAY_UM7_DEV="/dev/serial/by-path/pci-0000:00:14.0-usb-0:3:1.0-port0"
+export EXT_IMU_XYZ="-0.25203 0.130 0.0715"
+export EXT_IMU_RPY="3.1415 0 3.1415"
 
 # GPS configuration
 export SEGWAY_HAS_GPS=false
 export SEGWAY_HAS_NEO7=false
-export SEGWAY_NEO7_DEV="/dev/serial/by-path/pci-0000:00:1a.0-usb-0:1.6:1.0-port0"
-export GPS_XYZ="-0.07312445 0 0.38512342"
+export SEGWAY_NEO7_DEV="/dev/serial/by-path/pci-0000:00:14.0-usb-0:4:1.0-port0"
+export GPS_XYZ="0.5 0 0.25409"
 export GPS_RPY="0 0 0"
 
 # 2D scanner configuration for launch files; should change hokuyo
 # to sick if using a SICK LMS1XX
-export SEGWAY_HAS_2D_LASER=false
-export SEGWAY_2D_LASER_NS=hokuyo
-export SEGWAY_2D_LASER_TOPIC=/hokuyo/scan
+export SEGWAY_HAS_ONE_2D_LASER=false
+export SEGWAY_HAS_SECOND_2D_LASER=false
 
-export SEGWAY_HAS_HOKUYO=false
-export SEGWAY_HOKUYO_IP=10.66.171.6
-export SEGWAY_HOKUYO_PORT=10940
-export HOKUYO_XYZ="0.35 0 0.1"
-export HOKUYO_RPY="0 0 0"
+# Hokuyo configuration (only supports two by default) watch 
+# wavelength on multi-laser systems
+export SEGWAY_LASER1_IS_HOKUYO=false
+export SEGWAY_LASER1_IS_SICK_TIM=false
+export SEGWAY_LASER1_IP=10.66.171.8
+export SEGWAY_LASER1_PORT=2112
+#Uncomment below and comment line above for hokuyo
+#export SEGWAY_LASER1_PORT=10940 
+export LASER1_XYZ="0.62204 0 0.25409"
+export LASER1_RPY="0 0 0"
+export LASER1_MAX_RANGE=20.0
+export LASER1_MIN_RANGE=0.01
+export LASER1_PREFIX="front"
 
-export SEGWAY_HAS_SICK=false
-export SEGWAY_SICK_IP=10.66.171.8
-export SICK_LMS1XX_XYZ="0 0 1.0"
-export SICK_LMS1XX_RPY="3.1415 0 0"
+export SEGWAY_LASER2_IS_HOKUYO=false
+export SEGWAY_LASER2_IS_SICK_TIM=false
+export SEGWAY_LASER2_IP=10.66.171.9
+export SEGWAY_LASER2_PORT=2112
+#Uncomment below and comment line above for hokuyo
+#export SEGWAY_LASER1_PORT=10940 
+export LASER2_XYZ="-0.62204 0 0.25409"
+export LASER2_RPY="0 0 3.1415"
+export LASER2_MAX_RANGE=20.0
+export LASER2_MIN_RANGE=0.01
+export LASER2_PREFIX="rear"
 
 # Segway has KINECT
 export SEGWAY_HAS_KINECT=false
